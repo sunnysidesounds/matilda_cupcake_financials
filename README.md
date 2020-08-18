@@ -44,15 +44,21 @@ procrastination is.
 What's the best way to do that? Planning. 
 
 Not that procrastination planning where you think about stuff and dream about how awesome it'll be. Real planning, where we make commitments and stuff. 
-Let's dive in. The first step is to decide what. Remember how I said we weren't going to dream about this finished product? I lied. Take a second and think 
+Let's dive in. 
+
+### What
+
+The first step is to decide what. Remember how I said we weren't going to dream about this finished product? I lied. Take a second and think 
 about your perfect vision of this project. 
 
 Now cut it in half. Take about half of the things in that vision, and just decide now not to do them. The reality is that in software, things always take 
 longer than we anticipate. We almost always have to skip features at the end that we planned for, so why not do it in advance? We can always add them back 
 in if we have time. 
 
-This also includes spending time on stuff you don't know. Research is an important part of development, and it's OK to spend time on it. The second step is to 
-decide when. Think about the week ahead. If you use a calendar or a planner, get that in front of you. 
+This also includes spending time on stuff you don't know. Research is an important part of development, and it's OK to spend time on it. 
+
+### When
+The second step is to decide when. Think about the week ahead. If you use a calendar or a planner, get that in front of you. 
 
 When is weekly project time? I sometimes catch myself thinking that something will happen "sometime this week". I've looked around, and I haven't found a 
 calendar that has a box with that label. 
@@ -61,6 +67,9 @@ Take a minute and schedule some specific times to work on this project. It can j
 night to get this done if you don't want to. A half hour 3 times a week is way more than none at all. 
 
 If you aren't able to schedule as much time as you want, that's OK! Block out as much time as you can, and then go back to step one and cut out some more project. 
+
+### Commit 
+
 The third step is to commit.  Take your answers to the first two parts and put them in here. This is a crucial part of the process. It's really easy to let 
 ourselves slip, but when you commit yourself to someone else, it kicks things up a notch. I read all of these submissions, and I have an idea of how these 
 projects tend to go. If you don't take the time now and plan what, when, and commit, you won't submit anything this week. But if you do, it increases your 
@@ -68,3 +77,7 @@ chances dramatically.
 
 If you need some help at any point during the week, submit a help request here!  I'll try and connect you with a mentor or send you some resources.Good luck, 
 I'll check in later this week!
+
+
+
+
