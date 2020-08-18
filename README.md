@@ -35,10 +35,9 @@ If you want to get fancy, here's how you might take it even further:
 - Break these stats down by item.
 - Generate a graph of the data, Matilda loves charts
 - Get creative with the input.  Maybe you can think of something she'll actually use.
-- Now, how are you going to attack this project? Everyone has a graveyard of unfinished projects, how are you going to make this one different? 
 
-When you're working at a company, you've got this built in mechanism to force you to work on whatever you should be working on. For your own stuff, 
-there's none of that. Why work on your project when you could be relaxing? Or scrolling through HackerNews, or whatever your preferred method of 
+Now, how are you going to attack this project? Everyone has a graveyard of unfinished projects, how are you going to make this one different? When you're working 
+at a company, you've got this built in mechanism to force you to work on whatever you should be working on. For your own stuff, there's none of that. Why work on your project when you could be relaxing? Or scrolling through HackerNews, or whatever your preferred method of 
 procrastination is. 
 
 What's the best way to do that? Planning. 
@@ -77,6 +76,19 @@ chances dramatically.
 
 If you need some help at any point during the week, submit a help request here!  I'll try and connect you with a mentor or send you some resources.Good luck, 
 I'll check in later this week!
+
+
+## Project Breakdown
+
+### Minimum Requirements
+- [ ] Answer: How much money did I make last year? (Yearly Revenue Totals)
+- [ ] Answer: How much money do I make in a typical month? (Monthly Revenue Totals)
+- [ ] Answer: How much money do I make in a typical week? (Weekly Revenue Totals)
+
+### Extras / Optionals:
+- [ ] Break these stats down by item.
+- [ ] Generate a graph of the data, Matilda loves charts
+- [ ] Get creative with the input.  Maybe you can think of something she'll actually use.
 
 
 
