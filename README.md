@@ -97,10 +97,10 @@ Matilda to email Arthur the files and that she will view the generates email. Wi
 be automate.
 
 ***What do you need to learn before you start?***
-    - To learn how to connect to gmail API, (require gmail API dependencies in script, should be straight forward)
-    - To learn how to match up dates and numbers in the files.
-    - Determine if in-memory data parsing will work for this. If lots of data, a persistent model might work better.
-        - RDS, write to file...etc.
+- To learn how to connect to gmail API, (require gmail API dependencies in script, should be straight forward)
+- To learn how to match up dates and numbers in the files.
+- Determine if in-memory data parsing will work for this. If lots of data, a persistent model might work better.
+`- RDS, write to file...etc.
 
 ***When will you spend time on your project?***
     - 3-4 times MWF evening this week.
