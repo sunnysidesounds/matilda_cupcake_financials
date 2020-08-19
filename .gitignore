@@ -127,3 +127,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# IDE
+.idea
+
+# Misc
+token.pickle
+credentials.json
+.DS_Store

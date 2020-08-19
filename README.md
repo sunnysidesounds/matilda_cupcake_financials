@@ -37,7 +37,8 @@ If you want to get fancy, here's how you might take it even further:
 - Get creative with the input.  Maybe you can think of something she'll actually use.
 
 Now, how are you going to attack this project? Everyone has a graveyard of unfinished projects, how are you going to make this one different? When you're working 
-at a company, you've got this built in mechanism to force you to work on whatever you should be working on. For your own stuff, there's none of that. Why work on your project when you could be relaxing? Or scrolling through HackerNews, or whatever your preferred method of 
+at a company, you've got this built in mechanism to force you to work on whatever you should be working on. For your own stuff, there's none of that.
+Why work on your project when you could be relaxing? Or scrolling through HackerNews, or whatever your preferred method of
 procrastination is. 
 
 What's the best way to do that? Planning. 
@@ -80,15 +81,43 @@ I'll check in later this week!
 
 ## Project Breakdown
 
+### Worksheet
+
+***What does your finished project look like?***
+A script that we can put in a crontab, lambda function or jenkins jobs that does the following:
+1. Connects to a email (gmail) account, searches for Matilda's email, downloads the email attachments with Basic.txt, Delux.txt, and Total.txt
+2. Parses the data in these Basic.txt, Delux.txt, and Total.txt files and put them in-memory
+3. Then takes the in-memory data, run our calculations.
+4. Finally it generates a email reports and sends it back to Matilda via email.
+
+Assumptions:
+- Matilda will only use email and nothing more. Per this detail "Arthur is glad he finally got her to type up this info and
+email it instead of faxing it, but she flat out won't do anything more complicated than this." This assumes we can get
+Matilda to email Arthur the files and that she will view the generates email. With this assumption the above process will
+be automate.
+
+***What do you need to learn before you start?***
+    - To learn how to connect to gmail API, (require gmail API dependencies in script, should be straight forward)
+    - To learn how to match up dates and numbers in the files.
+    - Determine if in-memory data parsing will work for this. If lots of data, a persistent model might work better.
+        - RDS, write to file...etc.
+
+***When will you spend time on your project?***
+    - 3-4 times MWF evening this week.
+
+
 ### Minimum Requirements
 - [ ] Answer: How much money did I make last year? (Yearly Revenue Totals)
 - [ ] Answer: How much money do I make in a typical month? (Monthly Revenue Totals)
 - [ ] Answer: How much money do I make in a typical week? (Weekly Revenue Totals)
 
-### Extras / Optionals:
+### Extras / Optionals
 - [ ] Break these stats down by item.
 - [ ] Generate a graph of the data, Matilda loves charts
 - [ ] Get creative with the input.  Maybe you can think of something she'll actually use.
+
+### Components
+- Authenticator
 
 
 
