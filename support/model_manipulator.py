@@ -41,6 +41,27 @@ class ModelBuilder(object):
         self.build_model(os.path.join(Configuration.storage_path, Configuration.data_files[1]), self.model['delux'])
         self.build_model(os.path.join(Configuration.storage_path, Configuration.data_files[2]), self.model['total'])
 
+    def filter_model_by_args(self, args):
+        results_model = ModelBuilder.build_results_model()
+        results_model['type'] = args.type
+        results_model['model'] = self.model[args.type]
+        if args.year:
+            results_model['year'] = int(args.year)
+            # filter to year
+            results_model['model'] = [m for m in results_model['model'] if m['year'] == results_model['year']]
+
+        if args.month:
+            results_model['month'] = int(args.month)
+            # filter to month
+            results_model['model'] = [m for m in results_model['model'] if m['month'] == results_model['month']]
+
+        if args.week:
+            results_model['week'] = int(args.week)
+            # filter to week
+            results_model['model'] = [m for m in results_model['model'] if m['week'] == results_model['week']]
+
+        return results_model
+
     @staticmethod
     def build_results_model():
         return {
