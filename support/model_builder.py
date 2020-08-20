@@ -26,7 +26,12 @@ class ModelBuilder(object):
                 number = int(number)
             else:
                 number = 0
-            model.append({"date": date.strftime("%m-%d-%Y"), "amount": int(number)})
+            model.append({"date": date.strftime("%m-%d-%Y"),
+                          "amount": int(number),
+                          "week": int(date.isocalendar()[1]),
+                          "year": int(date.strftime("%Y")),
+                          "day": int(date.strftime("%d")),
+                          "month": int(date.strftime("%m"))})
 
             index += 1
 
@@ -35,3 +40,15 @@ class ModelBuilder(object):
         self.build_model(os.path.join(Configuration.storage_path, Configuration.data_files[0]), self.model['basic'])
         self.build_model(os.path.join(Configuration.storage_path, Configuration.data_files[1]), self.model['delux'])
         self.build_model(os.path.join(Configuration.storage_path, Configuration.data_files[2]), self.model['total'])
+
+    @staticmethod
+    def build_results_model():
+        return {
+            "revenue": 0,  # dollar amount formatted
+            "year": None,
+            "week": None,
+            "month": None,
+            "type": None,  # basic, delux, total
+            "model": None
+        }
+

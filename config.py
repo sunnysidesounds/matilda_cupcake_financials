@@ -9,3 +9,5 @@ class Configuration(object):
     storage_path = os.path.join(os.path.abspath(os.getcwd()), "data")
     data_files = ['Basic.txt', 'Delux.txt', 'Total.txt']
     email_keyword_query = 'cupcakes'
+    cost_of_basic = 5  # $5 dollars
+    cost_of_delux = 6  # $6 dollars
