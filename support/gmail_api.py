@@ -1,8 +1,11 @@
+import httplib2
 import pickle
 import os.path
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 import base64
 from apiclient import errors
 
@@ -18,6 +21,27 @@ class GmailService(object):
 
     def get_service(self):
         return build('gmail', 'v1', credentials=self.credentials)
+
+    def send_message(self, sender, to, subject, msg_html, msg_plain):
+        message = self.create_message(sender, to, subject, msg_html, msg_plain)
+        try:
+            message = (self.service.users().messages().send(userId="me", body=message).execute())
+            return message
+        except errors.HttpError as error:
+            print('An error occurred: %s' % error)
+
+
+    def create_message(self, sender, to, subject, msgHtml, msgPlain):
+        msg = MIMEMultipart('alternative')
+        msg['Subject'] = subject
+        msg['From'] = sender
+        msg['To'] = to
+        msg.attach(MIMEText(msgPlain, 'plain'))
+        msg.attach(MIMEText(msgHtml, 'html'))
+        raw = base64.urlsafe_b64encode(msg.as_bytes())
+        raw = raw.decode()
+        body = {'raw': raw}
+        return body
 
     def search_messages(self, search_query):
         if self.service:
