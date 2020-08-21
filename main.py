@@ -1,7 +1,7 @@
 import os
 import sys
 import argparse
-from tabulate import tabulate
+from support.messages import LogMessages, EmailMessages
 from support.gmail_api import GmailService
 from config import Configuration
 from support.model_manipulator import ModelBuilder
@@ -19,12 +19,12 @@ def files_exist():
 def main():
     # Init command-line arguments parser
     parser = argparse.ArgumentParser(
-        description="Matilda Cupcakes Financials Calculator"
+        description=Configuration.email['subject']
     )
     parser.add_argument('-y', '--year', help="Calculate by year", type=int)
     parser.add_argument('-m', '--month', help="Calculate by month", type=int)
     parser.add_argument('-w', '--week', help="Calculate by week", type=int)
-    parser.add_argument('-t', '--type', help="Calculate by type", type=str, required=True, choices=['basic', 'delux', 'total', 'all'])
+    parser.add_argument('-t', '--type', help="Filter by type", type=str, required=True, choices=['basic', 'delux', 'total', 'all'])
 
     try:
         args = parser.parse_args()
@@ -34,9 +34,9 @@ def main():
         most_recent_msg_id = service.search_msg_ids_containing(Configuration.email_keyword_query).pop()
         downloaded_attachments = service.get_attachments('me', most_recent_msg_id, Configuration.storage_path)
         if downloaded_attachments:
-            print("1. Downloaded {files} with message_id: {messageId}".format(files=', '.join(downloaded_attachments), messageId=most_recent_msg_id))
+            print(LogMessages.download_files_msg.format(files=', '.join(downloaded_attachments), messageId=most_recent_msg_id))
         else:
-            print("ERROR: No email attachments don't exist can't proceed, exiting!")
+            print(LogMessages.download_files_msg_error)
             sys.exit()
 
         # Step 2: Parse files of Basic.txt, Delux.txt, and Total.txt and build a dictionary model of dates and amounts
@@ -49,19 +49,18 @@ def main():
             if len(model['basic']) == len(model['delux']) and len(model['basic']) == len(model['total']):
                 total_records = len(model['basic'])
                 status = True
-                print("2. Building model with data received, total records: {totalRecords} - status: {status}".format(totalRecords=total_records, status=status))
+                print(LogMessages.build_model_msg.format(totalRecords=total_records, status=status))
             else:
-                print("ERROR: In building model with data total records: {totalRecords} - status: {status}".format(totalRecords=total_records, status=status))
+                print(LogMessages.build_model_msg_error.format(totalRecords=total_records, status=status))
 
         else:
-            print("ERROR: No files don't exist can't proceed, exiting!")
+            print(LogMessages.no_files_exist_msg)
             sys.exit()
 
         # Step 3: Filter dataset and calculate Financial Data
         results_model_list = []
-
         if status and total_records > 0:
-            print("3. Calculating financials with arguments: {arguments}".format(arguments=args))
+            print(LogMessages.filter_and_calculate_msg.format(arguments=args))
             if args.type == 'all':
                 for type in ['basic', 'delux', 'total']:
                     args.type = type
@@ -74,25 +73,23 @@ def main():
                 results_model_list.append(results_model)
 
         else:
-            print("ERROR: status: {status} - total_records: {totalRecords}".format(totalRecords=total_records, status=status))
+            print(LogMessages.filter_and_calculate_msg_error.format(totalRecords=total_records, status=status))
 
-        # Step 4: Generate email to send report
+        # Step 4: Generate email to send email report
         if len(results_model_list) > 0:
-            message = Configuration.email['subject'] + ": <br/>"
-            message += "Year={year}, Week={week}, Month={month}<br/><br/>".format(year=args.year, week=args.week, month=args.month)
+            results_list = ''
             for result_model in results_model_list:
+                results_list += EmailMessages.revenue_row.format(type=result_model['type'], revenue=result_model['revenue'], count=result_model['count'])
+                print(LogMessages.total_revenue_msg.format(type=result_model['type'], revenue=result_model['revenue']))
 
-                message += "- {type} : {revenue} <br/>".format(type=result_model['type'], revenue=result_model['revenue'])
-
-                print(" - Total revenue with type: {type} - revenue: {revenue}".format(type=result_model['type'], revenue=result_model['revenue']))
-
-
+            duration_period = EmailMessages.duration_period_row.format(year=args.year, month=args.month, week=args.week)
+            message = Configuration.email['template'].format(titleEmail=Configuration.email['subject'], resultsList=results_list, periodTime=duration_period)
             sent_message = service.send_message(Configuration.email['from'], Configuration.email['to'], Configuration.email['subject'], message, message)
 
-            print("4. Sending calulated data to {toEmail} - message_id: {messageId}".format(toEmail=Configuration.email["to"], messageId=sent_message['id']))
+            print(LogMessages.generate_email_report_msg.format(toEmail=Configuration.email["to"], messageId=sent_message['id']))
 
         else:
-            print("ERROR: No revenue could be calculated for these arguments {arguments}".format(arguments=args))
+            print(LogMessages.generate_email_report_msg_error.format(arguments=args))
 
     except Exception as e:
         print(e)

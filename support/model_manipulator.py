@@ -60,6 +60,8 @@ class ModelBuilder(object):
             # filter to week
             results_model['model'] = [m for m in results_model['model'] if m['week'] == results_model['week']]
 
+        results_model['count'] = sum([r['amount'] for r in self.model[args.type]])
+
         return results_model
 
     @staticmethod
@@ -70,6 +72,7 @@ class ModelBuilder(object):
             "week": None,
             "month": None,
             "type": None,  # basic, delux, total
-            "model": None
+            "model": None,
+            "count": None
         }
 

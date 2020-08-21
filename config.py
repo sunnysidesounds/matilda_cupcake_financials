@@ -14,5 +14,14 @@ class Configuration(object):
     email = {
         "to": 'sunnysidesounds@gmail.com',
         "from": 'jasalexanderexpedia@gmail.com',
-        "subject": 'Matilda Cupcakes Financials'
+        "subject": 'Matilda Cupcakes Financials',
+        "template": """
+        <div id="container" style="border: 1px solid #CCC; padding: 10px;">
+            <h3>{titleEmail}</h3>
+            <h5>{periodTime}</h5>
+            <div id="sub-container" style="border: 1px solid #CCC; padding: 5px;">
+                {resultsList}
+            </div>
+        </div>                        
+        """
     }
