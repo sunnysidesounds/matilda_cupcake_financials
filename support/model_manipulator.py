@@ -60,7 +60,12 @@ class ModelBuilder(object):
             # filter to week
             results_model['model'] = [m for m in results_model['model'] if m['week'] == results_model['week']]
 
-        results_model['count'] = sum([r['amount'] for r in self.model[args.type]])
+        if results_model['type'] == 'basic':
+            results_model['count'] = "${cost} x {count}".format(cost=Configuration.cost_of_basic, count=sum([r['amount'] for r in results_model['model']]))
+        elif results_model['type'] == 'delux':
+            results_model['count'] = "${cost} x {count}".format(cost=Configuration.cost_of_delux, count=sum([r['amount'] for r in results_model['model']]))
+        elif results_model['type'] == 'total':
+            results_model['count'] = ' -- '
 
         return results_model
 
@@ -71,7 +76,7 @@ class ModelBuilder(object):
             "year": None,
             "week": None,
             "month": None,
-            "type": None,  # basic, delux, total
+            "type": None,  # basic, delux, total, all
             "model": None,
             "count": None
         }
