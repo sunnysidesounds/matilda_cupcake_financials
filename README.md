@@ -141,9 +141,9 @@ to run this program. This program requires a gmail account with API access to al
 
 Arguments:
 - -y --year help="Calculate by year", type=int)
-- -m --mont, help="Calculate by month", type=int)
+- -m --month, help="Calculate by month", type=int)
 - -w --week help="Calculate by week", type=int)
-- -t --type help="Filter by type", type=str, required=True, choices=['basic', 'delux', 'total', 'all', 'average'])
+- -t --type help="Filter by type" choices=['basic', 'delux', 'total', 'all', 'average'])
 
 
 ## Support
