@@ -12,8 +12,8 @@ class Configuration(object):
     cost_of_basic = 5  # $5 dollars
     cost_of_delux = 6  # $6 dollars
     email = {
-        "to": 'sunnysidesounds@gmail.com',
-        "from": 'jasalexanderexpedia@gmail.com',
+        "to": os.environ['CUPCAKE_TO_EMAIL'],
+        "from": os.environ['CUPCAKE_FROM_EMAIL'],
         "subject": 'Matilda Cupcakes Financials',
         "template": """
         <div id="container" style="border: 1px solid #CCC; padding: 10px;">
