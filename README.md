@@ -120,7 +120,7 @@ be automate.
 - [X] How much money do I make in a typical month? (Monthly Revenue Totals)
     - Example commannds: `python main.py -t=average -y=2019 -m=1`
     - Answer: about $2,700 - $2,900 a month
-- [ ] How much money do I make in a typical week? (Weekly Revenue Totals)
+- [X] How much money do I make in a typical week? (Weekly Revenue Totals)
     - Example commannds: `python main.py -t=average -y=2019 -w=1`
 
 ## Setup & Install Dependencies For Program
