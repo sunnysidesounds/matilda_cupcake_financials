@@ -140,3 +140,7 @@ to run this program. This program requires a gmail account with API access to al
 1. Run the program by `venv/bin/python main.py -t={type}`
 
 
+## Support
+- Just email me @ sunnysidesounds[at]gmail[dot]com
+
+
