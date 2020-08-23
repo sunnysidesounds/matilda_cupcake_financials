@@ -111,22 +111,20 @@ be automate.
     - Example command: `python main.py -t=all -y=2019`
     - Answer: About 33k to 35k a year.
 - [X] How much money do I make in a typical month? (Monthly Revenue Totals)
-    - Example commannds:
-    - `python main.py -t=all -y=2019 -m=1`
-    - `python main.py -t=all -y=2019 -m=2`
-    - `python main.py -t=all -y=2019 -m=3`
-    - `python main.py -t=all -y=2019 -m=4`
+    - Example commannds: `python main.py -t=average -y=2019 -m=1`
     - Answer: about $2,700 - $2,900 a month
 - [ ] How much money do I make in a typical week? (Weekly Revenue Totals)
+    - Example commannds: `python main.py -t=average -y=2019 -w=1`
 
-### Extras / Optionals
-- [ ] Break these stats down by item.
-- [ ] Generate a graph of the data, Matilda loves charts
-- [ ] Get creative with the input.  Maybe you can think of something she'll actually use.
+## Setup & Install Dependencies For Program
+1. Install virtualenv using `pip install virtualenv`
+2. Pull down from git or unzip the matilda_cupcake_financials/ service source code.
+3. Get to the root directory of the service `cd /path-to-project/matilda_cupcake_financials/`
+4. Create a new virtual environment `virtualenv venv`
+5. Active the new virtual environment `source venv/bin/activate`
+6. Install requirements into virtual environment `venv/bin/pip install -r requirements.txt`
 
-### Components
-- Authenticator
-
-
+## Running Program
+1. Run the program by `venv/bin/python main.py -t={type}`
 
 
