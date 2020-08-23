@@ -3,10 +3,10 @@
 A script that answer's financial questions about Matilda's cupcake company.
 
 Terminal Response:
-![alt screenshot](https://github.com/sunnysidesounds/matilda_cupcake_financials/blob/master/terminal_response.png.png?raw=true)
+![alt screenshot](https://github.com/sunnysidesounds/matilda_cupcake_financials/blob/master/terminal_response.png?raw=true)
 
 Email Response:
-![alt screenshot](https://github.com/sunnysidesounds/matilda_cupcake_financials/blob/master/email_response.png.png?raw=true)
+![alt screenshot](https://github.com/sunnysidesounds/matilda_cupcake_financials/blob/master/email_response.png?raw=true)
 
 
 ## Project
