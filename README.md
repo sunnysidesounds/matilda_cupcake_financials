@@ -139,6 +139,12 @@ to run this program. This program requires a gmail account with API access to al
 ## Running Program
 1. Run the program by `venv/bin/python main.py -t={type}`
 
+Arguments:
+- -y --year help="Calculate by year", type=int)
+- -m --mont, help="Calculate by month", type=int)
+- -w --week help="Calculate by week", type=int)
+- -t --type help="Filter by type", type=str, required=True, choices=['basic', 'delux', 'total', 'all', 'average'])
+
 
 ## Support
 - Just email me @ sunnysidesounds[at]gmail[dot]com
