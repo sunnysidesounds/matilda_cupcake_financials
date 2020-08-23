@@ -130,6 +130,8 @@ be automate.
 4. Create a new virtual environment `virtualenv venv`
 5. Active the new virtual environment `source venv/bin/activate`
 6. Install requirements into virtual environment `venv/bin/pip install -r requirements.txt`
+7. Please visit gmail API https://developers.google.com/gmail/api/quickstart/python to obtain the credientials.json you will need
+to run this program. This program requires a gmail account with API access to allow gettting and sending of messages. 
 
 ## Running Program
 1. Run the program by `venv/bin/python main.py -t={type}`
