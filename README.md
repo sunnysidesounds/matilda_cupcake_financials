@@ -133,8 +133,8 @@ be automate.
 7. Please visit gmail API https://developers.google.com/gmail/api/quickstart/python to obtain the credientials.json you will need
 to run this program. This program requires a gmail account with API access to allow gettting and sending of messages.
 8. Set environment variables for TO and FROM gmail email addresses:
-    - `export CUPCAKE_TO_EMAIL='someemail@gmail.com`
-    - `export CUPCAKE_FROM_EMAIL='someemail@gmail.com`
+    - `export CUPCAKE_TO_EMAIL='some_email@gmail.com`
+    - `export CUPCAKE_FROM_EMAIL='some_email@gmail.com`
 
 ## Running Program
 1. Run the program by `venv/bin/python main.py -t={type}`
