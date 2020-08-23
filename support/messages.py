@@ -10,9 +10,9 @@ class LogMessages(object):
     filter_and_calculate_msg_error = "ERROR: status: {status} - total_records: {totalRecords}"
     generate_email_report_msg = "4. Sending calulated data to {toEmail} - message_id: {messageId}"
     generate_email_report_msg_error = "ERROR: No revenue could be calculated for these arguments {arguments}"
-    total_revenue_msg = " - Total revenue with type: {type} - revenue: {revenue}"
+    total_revenue_msg = " - Total revenue with type: {type} - revenue: {revenue} / average revenue: {average}"
 
 
 class EmailMessages(object):
-    revenue_row = "<p style='padding-left: 10px'> - {type} : {revenue} : {count} cookies <p/>"
+    revenue_row = "<p style='padding-left: 10px'> - {type} : {revenue} / average revenue: {average} : {count} cookies : <p/>"
     duration_period_row = "Report for period: year={year}, month={month}, week={week}"

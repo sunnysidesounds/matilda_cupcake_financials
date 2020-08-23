@@ -24,7 +24,7 @@ def main():
     parser.add_argument('-y', '--year', help="Calculate by year", type=int)
     parser.add_argument('-m', '--month', help="Calculate by month", type=int)
     parser.add_argument('-w', '--week', help="Calculate by week", type=int)
-    parser.add_argument('-t', '--type', help="Filter by type", type=str, required=True, choices=['basic', 'delux', 'total', 'all'])
+    parser.add_argument('-t', '--type', help="Filter by type", type=str, required=True, choices=['basic', 'delux', 'total', 'all', 'average'])
 
     try:
         args = parser.parse_args()
@@ -61,7 +61,7 @@ def main():
         results_model_list = []
         if status and total_records > 0:
             print(LogMessages.filter_and_calculate_msg.format(arguments=args))
-            if args.type == 'all':
+            if args.type == 'all' or args.type == 'average':
                 for type in ['basic', 'delux', 'total']:
                     args.type = type
                     filtered_model = model_builder.filter_model_by_args(args)
@@ -79,8 +79,8 @@ def main():
         if len(results_model_list) > 0:
             results_list = ''
             for result_model in results_model_list:
-                results_list += EmailMessages.revenue_row.format(type=result_model['type'], revenue=result_model['revenue'], count=result_model['count'])
-                print(LogMessages.total_revenue_msg.format(type=result_model['type'], revenue=result_model['revenue']))
+                results_list += EmailMessages.revenue_row.format(type=result_model['type'], revenue=result_model['revenue'], count=result_model['count'], average=result_model['average_revenue'])
+                print(LogMessages.total_revenue_msg.format(type=result_model['type'], revenue=result_model['revenue'], average=result_model['average_revenue']))
 
             duration_period = EmailMessages.duration_period_row.format(year=args.year, month=args.month, week=args.week)
             message = Configuration.email['template'].format(titleEmail=Configuration.email['subject'], resultsList=results_list, periodTime=duration_period)

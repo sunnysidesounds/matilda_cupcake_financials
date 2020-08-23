@@ -36,7 +36,6 @@ class ModelBuilder(object):
             index += 1
 
     def build_models(self):
-
         self.build_model(os.path.join(Configuration.storage_path, Configuration.data_files[0]), self.model['basic'])
         self.build_model(os.path.join(Configuration.storage_path, Configuration.data_files[1]), self.model['delux'])
         self.build_model(os.path.join(Configuration.storage_path, Configuration.data_files[2]), self.model['total'])
@@ -67,6 +66,9 @@ class ModelBuilder(object):
         elif results_model['type'] == 'total':
             results_model['count'] = ' -- '
 
+        results_model['average_count'] = sum([r['amount'] for r in results_model['model']] * len(results_model['model']))
+
+
         return results_model
 
     @staticmethod
@@ -78,6 +80,8 @@ class ModelBuilder(object):
             "month": None,
             "type": None,  # basic, delux, total, all
             "model": None,
-            "count": None
+            "count": None,
+            "average_count": None,
+            "average_revenue": None
         }
 

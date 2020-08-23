@@ -107,9 +107,17 @@ be automate.
 
 
 ### Minimum Requirements
-- [ ] Answer: How much money did I make last year? (Yearly Revenue Totals)
-- [ ] Answer: How much money do I make in a typical month? (Monthly Revenue Totals)
-- [ ] Answer: How much money do I make in a typical week? (Weekly Revenue Totals)
+- [X] How much money did I make last year? (Yearly Revenue Totals)
+    - Example command: `python main.py -t=all -y=2019`
+    - Answer: About 33k to 35k a year.
+- [X] How much money do I make in a typical month? (Monthly Revenue Totals)
+    - Example commannds:
+    - `python main.py -t=all -y=2019 -m=1`
+    - `python main.py -t=all -y=2019 -m=2`
+    - `python main.py -t=all -y=2019 -m=3`
+    - `python main.py -t=all -y=2019 -m=4`
+    - Answer: about $2,700 - $2,900 a month
+- [ ] How much money do I make in a typical week? (Weekly Revenue Totals)
 
 ### Extras / Optionals
 - [ ] Break these stats down by item.
